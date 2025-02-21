@@ -1,0 +1,8 @@
+﻿  JsonLibrary.c
+C:\Users\User\OneDrive\바탕 화면\대학교\멘토링\도서관리 프로그램\도서관리 프로그램\Library\Library\JsonLibrary.c(97,9): warning C4098: 'PrintBook': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\User\OneDrive\바탕 화면\대학교\멘토링\도서관리 프로그램\도서관리 프로그램\Library\Library\JsonLibrary.c(277,9): warning C4098: 'RecommendBook': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\User\OneDrive\바탕 화면\대학교\멘토링\도서관리 프로그램\도서관리 프로그램\Library\Library\JsonLibrary.c(300,9): warning C4098: 'Rent': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\User\OneDrive\바탕 화면\대학교\멘토링\도서관리 프로그램\도서관리 프로그램\Library\Library\JsonLibrary.c(379,13): warning C4098: 'Rent': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\User\OneDrive\바탕 화면\대학교\멘토링\도서관리 프로그램\도서관리 프로그램\Library\Library\JsonLibrary.c(508,9): warning C4098: 'SearchAuthor': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\User\OneDrive\바탕 화면\대학교\멘토링\도서관리 프로그램\도서관리 프로그램\Library\Library\JsonLibrary.c(548,9): warning C4098: 'SearchBookname': 'void' 함수에서 값을 반환하고 있습니다.
+  Library.vcxproj -> C:\Users\User\OneDrive\바탕 화면\대학교\멘토링\도서관리 프로그램\도서관리 프로그램\Library\x64\Debug\Library.exe

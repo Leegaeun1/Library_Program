@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DE19DD5E-7AAB-4579-9DDB-013584BC90ED}|Library\\Library.vcxproj|C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\Library\\JsonLibrary.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DE19DD5E-7AAB-4579-9DDB-013584BC90ED}|Library\\Library.vcxproj|solutionrelative:Library\\JsonLibrary.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE19DD5E-7AAB-4579-9DDB-013584BC90ED}|Library\\Library.vcxproj|C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\Library\\parson.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DE19DD5E-7AAB-4579-9DDB-013584BC90ED}|Library\\Library.vcxproj|solutionrelative:Library\\parson.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE19DD5E-7AAB-4579-9DDB-013584BC90ED}|Library\\Library.vcxproj|C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\Library\\LibraryProgram.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DE19DD5E-7AAB-4579-9DDB-013584BC90ED}|Library\\Library.vcxproj|solutionrelative:Library\\LibraryProgram.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE19DD5E-7AAB-4579-9DDB-013584BC90ED}|Library\\Library.vcxproj|C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\Library\\jsontest.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DE19DD5E-7AAB-4579-9DDB-013584BC90ED}|Library\\Library.vcxproj|solutionrelative:Library\\jsontest.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "parson.h",
+              "DocumentMoniker": "C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\Library\\parson.h",
+              "RelativeDocumentMoniker": "Library\\parson.h",
+              "ToolTip": "C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\Library\\parson.h",
+              "RelativeToolTip": "Library\\parson.h",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAAIYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-20T02:58:04.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "jsontest.c",
+              "DocumentMoniker": "C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\Library\\jsontest.c",
+              "RelativeDocumentMoniker": "Library\\jsontest.c",
+              "ToolTip": "C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\Library\\jsontest.c",
+              "RelativeToolTip": "Library\\jsontest.c",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-01-17T06:09:48.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LibraryProgram.c",
+              "DocumentMoniker": "C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\Library\\LibraryProgram.c",
+              "RelativeDocumentMoniker": "Library\\LibraryProgram.c",
+              "ToolTip": "C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\Library\\LibraryProgram.c",
+              "RelativeToolTip": "Library\\LibraryProgram.c",
+              "ViewState": "AgIAAA0BAAAAAAAAAAAAAOcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-01-17T06:35:23.483Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JsonLibrary.c",
+              "DocumentMoniker": "C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\Library\\JsonLibrary.c",
+              "RelativeDocumentMoniker": "Library\\JsonLibrary.c",
+              "ToolTip": "C:\\Users\\TEST\\Desktop\\\uBA58\uD1A0\uB9C1\\2025\uB144 \uBA58\uD1A0\uB9C1\\\uB3C4\uC11C\uAD00\uB9AC \uD504\uB85C\uADF8\uB7A8\\Library\\Library\\JsonLibrary.c*",
+              "RelativeToolTip": "Library\\JsonLibrary.c*",
+              "ViewState": "AgIAAPUAAAAAAAAAAAAAADUBAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-01-16T03:02:20.62Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

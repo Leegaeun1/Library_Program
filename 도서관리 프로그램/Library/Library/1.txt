@@ -1,0 +1,377 @@
+#include <stdio.h>
+#include <windows.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
+#define _CRT_SECURE_NO_WARNINGS
+
+#define UP 72
+#define DOWN 80
+#define ENTER 13
+
+typedef struct Book {
+	char name[100];
+	char author[100];
+	int researchCnt;
+	boolean rent;
+	struct Book* prev;
+	struct Book* next;
+}Book;
+
+Book* head = NULL;
+Book* tail = NULL;
+
+FILE* fp;
+
+void Menu(); //전체 메뉴
+void GotoXY(int x, int y); //이동
+int selectMenu(); //메뉴 선택하기
+void HideCursor(); //커서 숨기기
+void AddBook(); //도서 추가
+void PrintBooks(); //도서 출력
+void SaveFile(); //저장
+void FreeBooks(); //메모리 할당 해제
+void SearchBooks(); //도서 검색
+void SearchAuthor();
+void SearchBookname();
+void ResetFile(); //초기화
+
+int main() {
+
+	int selectedMenu;
+	HideCursor();
+	while (1) {
+		selectedMenu = selectMenu();
+		system("cls");
+
+		switch (selectedMenu) {
+		case 1:
+			PrintBooks();
+			printf("전체 도서 목록 출력.\n");
+			break;
+		case 2:
+			printf("추천 도서 목록 출력.\n");
+			break;
+		case 3:
+			AddBook();
+			SaveFile();
+			break;
+		case 4:
+			SearchBooks();
+			break;
+		case 5:
+			printf("도서 대출/반납\n");
+			break;
+		case 6:
+			ResetFile();
+			printf("초기화");
+			break;
+		case 7:
+			SaveFile();
+			printf("종료\n");
+			return 0;
+		default:
+			printf("오류");
+			break;
+		}
+		printf("\n 엔터를 눌러 메뉴로 돌아갑니다");
+		getchar();
+		system("cls");
+	}
+	FreeBooks();
+	return 0;
+}
+
+int selectMenu() {
+	Menu();
+	int menuSelect = 1;
+	int getC = 1, mY = 3;
+
+	GotoXY(6, mY);
+	printf("▶");
+	while (getC != ENTER) {
+		if (_kbhit()) {
+			getC = _getch();
+			switch (getC) {
+			case UP:
+				if (menuSelect > 1) {
+					GotoXY(6, mY);
+					printf("    ");
+					mY -= 2;
+					GotoXY(6, mY);
+					printf("▶");
+					menuSelect -= 1;
+				}
+				break;
+			case DOWN:
+				if (menuSelect < 7) {
+					GotoXY(6, mY);
+					printf("    ");
+					mY += 2;
+					GotoXY(6, mY);
+					printf("▶");
+					menuSelect += 1;
+				}
+				break;
+			}
+		}
+	}
+	return menuSelect;
+}
+
+void AddBook() {
+	Book* book = (Book*)malloc(sizeof(Book));
+	printf("추가할 도서명을 입력해주세요 : ");
+	fgets(book->name, sizeof(book->name), stdin);
+	book->name[strcspn(book->name, "\n")] = '\0';
+
+	printf("작가명을 입력해주세요 : ");
+	fgets(book->author, sizeof(book->author), stdin);
+	book->author[strcspn(book->author, "\n")] = '\0';
+
+	book->researchCnt = 0; //초기 검색 횟수
+	book->rent = 0;
+	book->prev = NULL;
+	book->next = NULL;
+
+	if (head == NULL) {
+		head = tail = book;
+	}
+	else {
+		tail->next = book;
+		book->prev = tail;
+		tail = book;
+	}
+	printf("도서가 성공적으로 추가되었습니다.\n");
+}
+
+void PrintBooks() {
+	FILE* fp = fopen("books.txt", "r");
+	if (fp == NULL) {
+		printf("파일 열기 실패\n");
+		return;
+	}
+	char str[100];
+	while (fgets(str, sizeof(str), fp)) {
+		// 줄 끝의 개행문자 제거
+		str[strcspn(str, "\n")] = '\0';
+		int i = 0;
+		char bookTitle[50], author[50];
+		int j = 0, k = 0;
+		int commaFound = 0;  // 콤마가 발견되었는지 여부
+
+		// 도서명과 작가명을 분리하는 루프
+		while (str[i] != '\0') {
+			if (str[i] == ',' && !commaFound) {
+				bookTitle[j] = '\0';  // 도서명 끝
+				commaFound = 1;       // 콤마가 발견됨
+				i++;                  // 콤마 넘어가기
+				continue;
+			}
+
+			if (commaFound) {
+				author[k++] = str[i];  // 작가명 처리
+			}
+			else {
+				bookTitle[j++] = str[i];  // 도서명 처리
+			}
+			i++;
+		}
+
+		author[k] = '\0';  // 작가명 끝
+
+		// 출력
+		printf("도서명: %s\n", bookTitle);
+		printf("작가명: %s\n", author);
+		printf("-------------------------------\n");
+	}
+	fclose(fp);
+}
+
+
+
+void SearchBooks() {
+	printf("    1. 작가명으로 찾기 \n");
+	printf("    2. 도서명으로 찾기 \n");
+	printf("    3. 메뉴로 나가기 \n");
+
+	int getC = 1, mY = 0;
+	int select = 1;
+
+	GotoXY(1, mY);
+	printf("▶");
+	while (getC != ENTER) {
+		if (_kbhit()) {
+			getC = _getch();
+			switch (getC) {
+			case UP:
+				if (select > 1) {
+					GotoXY(1, mY);
+					printf("  ");
+					mY -= 1;
+					GotoXY(1, mY);
+					printf("▶");
+					select -= 1;
+				}
+				break;
+			case DOWN:
+				if (select < 3) {
+					GotoXY(1, mY);
+					printf("  ");
+					mY += 1;
+					GotoXY(1, mY);
+					printf("▶");
+					select += 1;
+				}
+				break;
+			case ENTER:
+				switch (select) {
+				case 1:
+					SearchAuthor();
+					break;
+				case 2:
+					SearchBookname();
+					break;
+				}
+			}
+		}
+	}
+}
+
+void SearchAuthor() {
+	system("cls");
+	Book* tmp = head;
+	char searchAuthor[100];
+
+	printf("찾으시려는 작가명을 입력해주세요 : ");
+	fgets(searchAuthor, sizeof(searchAuthor), stdin);
+	searchAuthor[strcspn(searchAuthor, "\n")] = '\0'; // 엔터 제거
+
+	int found = 0;
+
+	// 파일 열기 (읽기 모드)
+	FILE* fp = fopen("books.txt", "r");
+	if (fp == NULL) {
+		printf("파일 열기 실패\n");
+		return;
+	}
+
+	char str[100];
+	while (fgets(str, sizeof(str), fp)) {
+		// 줄 끝의 개행문자 제거
+		str[strcspn(str, "\n")] = '\0';
+		int i = 0;
+		char bookTitle[50], author[50];
+		int j = 0, k = 0;
+		int commaFound = 0;  // 콤마가 발견되었는지 여부
+
+		// 도서명과 작가명을 분리하는 루프
+		while (str[i] != '\0') {
+			if (str[i] == ',' && !commaFound) {
+				bookTitle[j] = '\0';  // 도서명 끝
+				commaFound = 1;       // 콤마가 발견됨
+				i++;                  // 콤마 넘어가기
+				continue;
+			}
+
+			if (commaFound) {
+				author[k++] = str[i];  // 작가명 처리
+			}
+			else {
+				bookTitle[j++] = str[i];  // 도서명 처리
+			}
+			i++;
+		}
+
+		author[k] = '\0';  // 작가명 끝
+		// 작가명이 일치하는 경우 출력
+		if (strcmp(author, searchAuthor) == 0) {  // 두 문자열이 같을 때
+			printf("도서명: %s, 작가명: %s\n", bookTitle, author);
+			printf("-------------------------------\n");
+			found = 1;
+			break;
+		}
+	}
+
+	// 파일 닫기
+	fclose(fp);
+
+	if (!found) {
+		printf("찾으시는 작가님이 없습니다.\n");
+	}
+}
+
+
+
+void SearchBookname() {
+
+}
+
+void ResetFile() {
+	FILE* fp = fopen("books.txt", "w");
+	if (fp == NULL) {
+		printf("파일 열기 실패\n");
+		return;
+	}
+
+	// 파일이 열리면, 아무 것도 쓰지 않고 바로 닫으면 파일 내용이 삭제됩니다.
+	fclose(fp);
+	printf("파일 내용이 삭제되었습니다.\n");
+}
+void SaveFile() {
+	FILE* fp = fopen("books.txt", "a");
+	if (fp == NULL) {
+		printf("파일 읽기 실패\n");
+		return;
+	}
+	else {
+		Book* tmp = head;
+		while (tmp != NULL) {
+			fprintf(fp, "%s,%s \n", tmp->name, tmp->author);
+			tmp = tmp->next;
+		}
+	}
+	fclose(fp);
+	printf("데이터가 파일에 저장되었습니다.\n");
+}
+void FreeBooks() {
+	Book* current = head;
+	while (current != NULL) {
+		Book* next = current->next;
+		free(current);
+		current = next;
+	}
+}
+void Menu() {
+	printf("********************************************\n");
+	printf("              도서 검색 프로그램           \n");
+	printf("********************************************\n");
+	printf("           1 : 전체 도서 목록              \n");
+	printf("--------------------------------------------\n");
+	printf("           2 : 추천 도서 목록              \n");
+	printf("--------------------------------------------\n");
+	printf("           3 : 도서 추가                   \n");
+	printf("--------------------------------------------\n");
+	printf("           4 : 도서 검색                   \n");
+	printf("--------------------------------------------\n");
+	printf("           5 : 도서 대출/반납              \n");
+	printf("--------------------------------------------\n");
+	printf("           6 : 초기화                   \n");
+	printf("--------------------------------------------\n");
+	printf("           7 : 종료 및 저장                   \n");
+	printf("********************************************\n");
+}
+
+void GotoXY(int x, int y) {//커서이동함수
+	COORD Cur = { x,y };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
+}
+
+void HideCursor() {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_CURSOR_INFO cursorInfo;
+
+	GetConsoleCursorInfo(hConsole, &cursorInfo); // 현재 커서 정보를 가져옴
+	cursorInfo.bVisible = FALSE;                // 커서를 숨김
+	SetConsoleCursorInfo(hConsole, &cursorInfo); // 변경된 커서 정보 설정
+}
